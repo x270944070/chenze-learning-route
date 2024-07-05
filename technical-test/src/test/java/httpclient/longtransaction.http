@@ -1,0 +1,14 @@
+### hello world
+POST http://localhost:8081/technical-test/longtransaction/helloWorld
+Content-Type: application/json
+
+{
+  "userCode": "100000000028"
+}
+
+### exe
+POST http://localhost:8081/technical-test/longtransaction/exe
+Content-Type: application/json
+
+{
+}

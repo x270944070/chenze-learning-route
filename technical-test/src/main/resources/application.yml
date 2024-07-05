@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    include: druid,datasource
+  data:
+    mongodb:
+      uri: mongodb://mongodb4.dev.wyyt.cc:27017
+      database: technical-test
+server:
+  servlet:
+    context-path: /technical-test
+  port: 8081
+
+mybatis:
+  mapper-locations: classpath:com/chenze/technical/test/longtransaction/dao/mapper/*.xml

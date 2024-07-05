@@ -1,6 +1,7 @@
 package com.chenze.spring.learning.helloworld.test;
 
 import com.chenze.spring.learning.helloworld.config.AppConfig;
+import com.chenze.spring.learning.helloworld.config.AppConfig2;
 import com.chenze.spring.learning.helloworld.service.OrderService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -34,7 +35,7 @@ public class MainTest {
          * 这个方法获取的并不是OrderService本身，而是获取的代理对象。
          * 可以理解成获取的实际是OrderService的子类
          */
-        OrderService orderService = (OrderService)applicationContext.getBean("orderService");
+        OrderService orderService = applicationContext.getBean("orderService", OrderService.class);
         orderService.shop();
     }
 
@@ -50,6 +51,22 @@ public class MainTest {
          * 5. 如果方法报错，执行connection.rollback()
          */
         orderService.exeShop();
+    }
+
+    @Test
+    public void parentApplicationContext(){
+
+        // 容器1
+        AnnotationConfigApplicationContext parentApplicationContext =  new AnnotationConfigApplicationContext(AppConfig2.class);
+
+        // 容器2
+        AnnotationConfigApplicationContext applicationContext =  new AnnotationConfigApplicationContext();
+        applicationContext.register(AppConfig.class);
+        applicationContext.setParent(parentApplicationContext);
+        applicationContext.refresh();
+
+        applicationContext.close();，
+
     }
 
 

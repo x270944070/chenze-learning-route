@@ -1,0 +1,67 @@
+spring:
+  datasource:
+    druid:
+      async-close-connection-enable: true
+      async-init: true
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      filter:
+        log4j2:
+          connection-close-after-log-enabled: true
+          connection-commit-after-log-enabled: true
+          connection-connect-after-log-enabled: true
+          connection-connect-before-log-enabled: true
+          connection-log-enabled: true
+          connection-log-error-enabled: true
+          data-source-log-enabled: true
+          enabled: true
+          result-set-log-enabled: true
+          statement-log-enabled: true
+        stat:
+          db-type: mysql
+          enabled: true
+          log-slow-sql: true
+          merge-sql: true
+          slow-sql-millis: 1000
+        wall:
+          config:
+            alter-table-allow: false
+            drop-table-allow: false
+            metadata-allow: true
+            none-base-statement-allow: false
+            select-into-outfile-allow: false
+            truncate-allow: false
+            update-where-none-check: true
+          db-type: mysql
+          enabled: true
+          log-violation: true
+          throw-exception: true
+      filters: stat,wall,log4j2
+      initial-size: 5
+      max-active: 20
+      max-pool-prepared-statement-per-connection-size: 20
+      max-wait: 60000
+      min-evictable-idle-time-millis: 30000
+      min-idle: 5
+      pool-prepared-statements: true
+      stat-view-servlet:
+        allow: 127.0.0.1
+        enabled: false
+        login-password: admin
+        login-username: admin
+        reset-enable: false
+        url-pattern: /druid/*
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      validation-query: SELECT 1 FROM DUAL
+      web-stat-filter:
+        enabled: true
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+        profile-enable: true
+        session-stat-enable: true
+        url-pattern: /*
+      url: ${spring.datasource.url}
+      username: ${spring.datasource.username}
+      password: ${spring.datasource.password}
+      driver-class-name: ${spring.datasource.driver-class-name}

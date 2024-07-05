@@ -1,5 +1,6 @@
 package com.chenze.spring.learning.helloworld.config;
 
+import com.chenze.spring.learning.helloworld.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,6 +21,11 @@ import javax.sql.DataSource;
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
 public class AppConfig {
+
+    /*@Bean
+    public UserService userService(){
+        return new UserService();
+    }*/
 
     /**
      * 接口切面
