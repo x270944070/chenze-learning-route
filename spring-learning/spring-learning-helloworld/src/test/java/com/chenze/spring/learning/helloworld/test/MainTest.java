@@ -65,7 +65,7 @@ public class MainTest {
         applicationContext.setParent(parentApplicationContext);
         applicationContext.refresh();
 
-        applicationContext.close();，
+        applicationContext.close();
 
     }
 

@@ -15,6 +15,7 @@
         <module>technical-case</module>
         <module>mysql-learning</module>
         <module>technical-test</module>
+        <module>sharding-sphere-learning</module>
     </modules>
 
     <properties>
