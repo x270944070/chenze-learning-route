@@ -3,6 +3,8 @@ package com.chenze.spring.cloud.learning.payment.controller;
 import com.chenze.spring.cloud.learning.payment.entities.Pay;
 import com.chenze.spring.cloud.learning.payment.entities.PayDTO;
 import com.chenze.spring.cloud.learning.payment.service.PayService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -18,12 +20,14 @@ import java.util.List;
 
 @RestController
 @Slf4j
+@Tag(name = "支付微服务模块", description = "支付CRUD")
 public class PayController {
 
     @Resource
     private PayService payService;
 
     @PostMapping(value = "/pay/add")
+    @Operation(summary = "新增", description = "新增支付流水方法")
     public String addPay(@RequestBody Pay pay) {
         System.out.println(pay.toString());
         int i = payService.add(pay);
@@ -31,11 +35,13 @@ public class PayController {
     }
 
     @DeleteMapping(value = "/pay/del/{id}")
+    @Operation(summary = "删除", description = "删除支付流水方法")
     public Integer deletePay(@PathVariable("id") Integer id) {
         return payService.delete(id);
     }
 
     @PutMapping(value = "/pay/update")
+    @Operation(summary = "修改", description = "修改支付流水方法")
     public String updatePay(@RequestBody PayDTO payDTO) {
         Pay pay = new Pay();
         BeanUtils.copyProperties(payDTO, pay);
@@ -44,11 +50,13 @@ public class PayController {
     }
 
     @GetMapping("/pay/get/{id}")
+    @Operation(summary = "按照流水Id查询", description = "按照流水Id查询")
     public Pay getById(@PathVariable("id")Integer id){
         return payService.getById(id);
     }
 
     @GetMapping("/pay/getAll")
+    @Operation(summary = "查询所有", description = "查询所有")
     public List<Pay> getAll(){
         return payService.getAll();
     }

@@ -40,7 +40,7 @@
         <spring.cloud.alibaba.version>2022.0.0.0-RC2</spring.cloud.alibaba.version>
 
         <cglib.version>3.3.0</cglib.version>
-        <springframework.version>5.3.10</springframework.version>
+        <springframework.version>6.1.1</springframework.version>
         <junit.version>4.13.2</junit.version>
         <guava.version>30.1-jre</guava.version>
     </properties>
