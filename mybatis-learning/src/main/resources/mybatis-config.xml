@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <property name="helperDialect" value="mysql"/> <!-- 配置数据库方言，支持多种数据库 -->
+            <property name="reasonable" value="true"/> <!-- 合理化分页 -->
+            <property name="supportMethodsArguments" value="true"/> <!-- 支持通过 PageHelper.startPage 方法传递分页参数 -->
+        </plugin>
+    </plugins>
+
+    <!-- 配置 mybatis 的环境 -->
+    <environments default="development">
+        <!-- 配置 mysql 的环境 -->
+        <environment id="development">
+            <!-- 配置事务的类型 -->
+            <transactionManager type="JDBC"/>
+            <!-- 配置连接数据库的信息：用的是数据源(连接池) -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://gz-cdb-nf8meuv5.sql.tencentcdb.com:26242/chenze_learning?useSSL=true&amp;useUnicode=true&amp;characterEncoding=utf8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="Cz0523.."/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--sql映射文件一定要注册到全局配置文件中-->
+    <mappers>
+        <mapper resource="mapper/EmployMapper.xml"/>
+    </mappers>
+
+</configuration>

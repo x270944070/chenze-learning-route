@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chenze.learning.mybatis.mapper.EmployeeMapper">
+
+
+
+    <select id="countAllForLimit" resultType="long">
+        select count(*) from mybatis_cache_employee
+    </select>
+    <select id="selectAllForLimit" resultType="com.chenze.learning.mybatis.model.Employee">
+        select * from mybatis_cache_employee limit ${start}, ${pageSize}
+    </select>
+
+    <select id="findAll" resultType="com.chenze.learning.mybatis.model.Employee">
+        select * from mybatis_cache_employee
+    </select>
+
+    <select id="selectAllForRowBounds" resultType="com.chenze.learning.mybatis.model.Employee">
+        select * from mybatis_cache_employee
+    </select>
+</mapper>

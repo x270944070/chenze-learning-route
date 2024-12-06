@@ -1,0 +1,129 @@
+### hello world
+POST http://localhost:8081/technical-test/longtransaction/helloWorld
+Content-Type: application/json
+
+{
+  "userCode": "100000000028"
+}
+
+### exe
+POST http://localhost:8081/technical-test/longtransaction/exe
+Content-Type: application/json
+
+{
+}
+
+
+### argos分析结果查询：重试
+GET https://caijing-stability-boe.byted.org/stability_core/alarm_analysis_result_callback
+Content-Type: application/json
+x-use-boe: 1
+x-tt-env: boe_chenze_ide1423
+
+{
+    "task_id": "476669958_9245_1732268004395"
+}
+
+
+### argos分析结果查询：首次
+POST https://caijing-stability-boe.byted.org/stability_core/alarm_analysis_result_callback
+Content-Type: application/json
+x-use-boe: 1
+x-tt-env: boe_stability_platform
+
+{
+    "AlarmData": {
+        "RuleId": "476669958",
+        "Psm": "caijing.tp.stability_analysis",
+        "Cluster": "default",
+        "Vregion": "China-BOE",
+        "ByteTreeIds": [
+            "0",
+            "1129",
+            "1134",
+            "2104400",
+            "2315489",
+            "2327476",
+            "1358226"
+        ],
+        "SuitType": "cloudplatform_tce",
+        "RuleName": "TCE 实例 Mem 使用率报警",
+        "Level": "warning",
+        "AlarmMethodsList": [
+            "Lark"
+        ],
+        "HandleSuggestion": "",
+        "AlertTime": "2024-11-19T08:30:24.739888799Z",
+        "AlertStartTime": "2024-11-19T08:30:24.739888799Z",
+        "AlarmForeignId": {
+            "AlertGroupId": "673c4ca1a08aedb7b57a43ac",
+            "SendItemId": "9245"
+        },
+        "AlarmReceivers": [
+            {
+                "ReceiverName": "chenwei.888",
+                "ReceiverType": "lark_user",
+                "Active": true,
+                "EmployeeType": "",
+                "EscalateLevel": 0,
+                "MultiLevelReceiverSourceInfo": {
+                    "AlarmMethodsList": [],
+                    "EscalationLevel": 0,
+                    "EscalationTo": "",
+                    "Name": "",
+                    "Type": "",
+                    "Val": "",
+                    "SendReason": ""
+                }
+            },
+            {
+                "ReceiverName": "gaozili",
+                "ReceiverType": "lark_user",
+                "Active": true,
+                "EmployeeType": "",
+                "EscalateLevel": 0,
+                "MultiLevelReceiverSourceInfo": {
+                    "AlarmMethodsList": [],
+                    "EscalationLevel": 0,
+                    "EscalationTo": "",
+                    "Name": "",
+                    "Type": "",
+                    "Val": "",
+                    "SendReason": ""
+                }
+            },
+            {
+                "ReceiverName": "linkji",
+                "ReceiverType": "lark_user",
+                "Active": true,
+                "EmployeeType": "",
+                "EscalateLevel": 0,
+                "MultiLevelReceiverSourceInfo": {
+                    "AlarmMethodsList": [],
+                    "EscalationLevel": 0,
+                    "EscalationTo": "",
+                    "Name": "",
+                    "Type": "",
+                    "Val": "",
+                    "SendReason": ""
+                }
+            }
+        ]
+    }
+}
+
+
+
+
+### argos分析结果查询：重试
+GET https://caijing-stability-boe.byted.org/stability/product/code?productCode=2343
+x-tt-env: boe_stability_platform
+
+
+###
+POST https://caijing-stability-boe.byted.org/stability_analysis/product/id?id=1
+Content-Type: application/json
+x-use-boe: 1
+x-tt-env: boe_wangyuxiang_analysis_test
+
+
