@@ -21,6 +21,7 @@
         <module>spring-cloud-learning/mybatis-generator</module>
         <module>chenze-common</module>
         <module>mybatis-learning</module>
+        <module>person-tool</module>
     </modules>
 
     <properties>
@@ -48,6 +49,8 @@
         <poi.version>4.1.2</poi.version>
         <mybatis.version>3.5.3</mybatis.version>
         <mybatis.pagehelper.version>5.2.0</mybatis.pagehelper.version>
+        <log4j.version>1.2.12</log4j.version>
+        <commonio.version>2.11.0</commonio.version>
 
     </properties>
 
@@ -198,6 +201,11 @@
                 <version>${junit.version}</version>
             </dependency>
             <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
@@ -222,7 +230,11 @@
                 <artifactId>pagehelper</artifactId>
                 <version>${mybatis.pagehelper.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commonio.version}</version>
+            </dependency>
 
         </dependencies>
 

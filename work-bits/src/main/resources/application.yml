@@ -12,3 +12,5 @@ server:
 
 mybatis:
   mapper-locations: classpath:com/chenze/technical/test/longtransaction/dao/mapper/*.xml
+
+debug: true

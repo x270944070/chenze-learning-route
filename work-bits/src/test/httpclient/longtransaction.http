@@ -127,3 +127,10 @@ x-use-boe: 1
 x-tt-env: boe_wangyuxiang_analysis_test
 
 
+### 飞书卡片图片
+GET https://open.larkoffice.com/open-apis/im/v1/images/img_v3_02hn_127b13e8-fa8a-4d43-b27f-29acf741a80g
+Authorization: Bearer t-g104cjerEFYPK5M33S543EJJLIFAE4JPBVHZ5Y6X
+
+
+#https://open.larkoffice.com/open-apis/im/v1/images/img_v3_02hn_127b13e8-fa8a-4d43-b27f-29acf741a80g
+#https://fsopen.bytedance.net/open-apis/im/v1/images/img_v3_02hn_127b13e8-fa8a-4d43-b27f-29acf741a80g
