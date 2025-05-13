@@ -22,6 +22,7 @@
         <module>chenze-common</module>
         <module>mybatis-learning</module>
         <module>person-tool</module>
+        <module>kafka-learning</module>
     </modules>
 
     <properties>
