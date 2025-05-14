@@ -5,7 +5,6 @@ import com.chenze.spring.cloud.learning.payment.entities.PayDTO;
 import com.chenze.spring.cloud.learning.payment.service.PayService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import javax.annotation.Resource;
 
 @RestController
 @Slf4j

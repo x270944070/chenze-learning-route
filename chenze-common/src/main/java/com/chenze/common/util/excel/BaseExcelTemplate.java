@@ -3,7 +3,6 @@ package com.chenze.common.util.excel;
 
 import com.alibaba.fastjson2.annotation.JSONField;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -15,7 +14,6 @@ import java.util.Map;
  */
 public abstract class BaseExcelTemplate implements Serializable {
 
-    @Serial
     private static final long serialVersionUID = 1208702987747558825L;
 
     /**

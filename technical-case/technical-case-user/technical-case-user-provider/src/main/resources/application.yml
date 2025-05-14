@@ -1,6 +1,9 @@
+server:
+  port: 8081
+
 dubbo:
   application:
-    name: user-service
+    name: user-provider
   registry:
     address: zookeeper://114.96.67.201:2181
   protocol:
@@ -15,7 +18,14 @@ spring:
     url: jdbc:mysql://gz-cdb-nf8meuv5.sql.tencentcdb.com:26242/chenze_learning?useSSL=true&amp;useUnicode=true&amp;characterEncoding=utf8
     username: root
     password: Cz0523..
+  data:
+    redis:
+      port: 6379
+      host: 114.96.67.201
+      password:
+      database: 0
+      timeout: 2000
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.chenze.technicalcase.user.model
+  type-aliases-package: com.chenze.technicalcase.user.model.entity

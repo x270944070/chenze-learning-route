@@ -5,13 +5,13 @@ import com.chenze.work.bits.model.entity.LongtransactionFrom;
 import com.chenze.work.bits.model.request.HelloWorldReq;
 import com.chenze.work.bits.model.response.HelloWorldRsp;
 import com.chenze.work.bits.service.MainService;
-import jakarta.annotation.Resource;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 
 
 @RestController

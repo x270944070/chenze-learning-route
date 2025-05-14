@@ -3,7 +3,7 @@ package com.chenze.spring.cloud.learning.payment.service.impl;
 import com.chenze.spring.cloud.learning.payment.entities.Pay;
 import com.chenze.spring.cloud.learning.payment.mapper.PayMapper;
 import com.chenze.spring.cloud.learning.payment.service.PayService;
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

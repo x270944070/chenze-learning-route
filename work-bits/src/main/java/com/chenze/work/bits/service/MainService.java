@@ -5,7 +5,7 @@ import com.chenze.work.bits.dao.LongtransactionFromMapper;
 import com.chenze.work.bits.dao.LongtransactionToMapper;
 import com.chenze.work.bits.model.entity.LongtransactionFrom;
 import com.chenze.work.bits.model.entity.LongtransactionTo;
-import jakarta.annotation.Resource;
+import javax.annotation.Resource;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
