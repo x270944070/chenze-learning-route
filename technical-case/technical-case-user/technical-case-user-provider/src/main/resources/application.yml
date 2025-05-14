@@ -1,0 +1,21 @@
+dubbo:
+  application:
+    name: user-service
+  registry:
+    address: zookeeper://114.96.67.201:2181
+  protocol:
+    name: dubbo
+    port: 20880
+  scan:
+    base-packages: com.chenze.technicalcase.user.service
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://gz-cdb-nf8meuv5.sql.tencentcdb.com:26242/chenze_learning?useSSL=true&amp;useUnicode=true&amp;characterEncoding=utf8
+    username: root
+    password: Cz0523..
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.chenze.technicalcase.user.model

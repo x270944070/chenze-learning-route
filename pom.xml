@@ -23,6 +23,10 @@
         <module>mybatis-learning</module>
         <module>person-tool</module>
         <module>kafka-learning</module>
+        <module>technical-case/technical-case-user</module>
+        <module>technical-case/technical-case-web</module>
+        <module>technical-case/technical-case-user/technical-case-user-api</module>
+        <module>technical-case/technical-case-user/technical-case-user-provider</module>
     </modules>
 
     <properties>
@@ -31,7 +35,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <hutool.version>5.8.22</hutool.version>
         <lombok.version>1.18.26</lombok.version>
-        <druid.version>1.1.20</druid.version>
+        <druid.version>1.2.20</druid.version>
         <mybatis.springboot.version>3.0.2</mybatis.springboot.version>
         <mysql.connector.version>8.0.11</mysql.connector.version>
         <swagger3.version>2.2.0</swagger3.version>
@@ -42,6 +46,7 @@
         <spring.boot.version>3.2.0</spring.boot.version>
         <spring.cloud.version>2023.0.0</spring.cloud.version>
         <spring.cloud.alibaba.version>2022.0.0.0-RC2</spring.cloud.alibaba.version>
+        <spring.dubbo.start.version>3.2.0</spring.dubbo.start.version>
 
         <cglib.version>3.3.0</cglib.version>
         <springframework.version>6.1.1</springframework.version>
@@ -52,6 +57,9 @@
         <mybatis.pagehelper.version>5.2.0</mybatis.pagehelper.version>
         <log4j.version>1.2.12</log4j.version>
         <commonio.version>2.11.0</commonio.version>
+        <zookeeper.version>3.8.1</zookeeper.version>
+        <curator.version>5.5.0</curator.version>
+
 
     </properties>
 
@@ -235,6 +243,34 @@
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${commonio.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${spring.dubbo.start.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+            </dependency>
+
+            <!-- Dubbo 默认使用 Curator 操作 ZooKeeper -->
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${curator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-recipes</artifactId>
+                <version>${curator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-x-discovery</artifactId>
+                <version>${curator.version}</version>
             </dependency>
 
         </dependencies>
