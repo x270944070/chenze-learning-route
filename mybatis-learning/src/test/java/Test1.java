@@ -37,9 +37,9 @@ public class Test1 {
         in = Resources.getResourceAsStream("mybatis-config.xml");
         //2.创建SqlSessionFactory构建者对象
         SqlSessionFactoryBuilder builder= new SqlSessionFactoryBuilder();
-        //3.创建SqlSessionFactory
+        //3.创建SqlSessionFactory：解析xml配置文件
         SqlSessionFactory factory = builder.build(in);
-        //4.使用 SqlSessionFactory 生产 SqlSession 对象
+        //4.使用 SqlSessionFactory 生产 SqlSession 对象：DefaultSqlSession
         sqlSession = factory.openSession();
         //5.使用 SqlSession 创建 dao 接口的代理对象
         mapper = sqlSession.getMapper(EmployeeMapper.class);

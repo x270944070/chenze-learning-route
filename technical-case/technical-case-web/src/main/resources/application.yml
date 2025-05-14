@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+dubbo:
+  application:
+    name: technical-case-web
+  registry:
+    address: zookeeper://114.96.67.201:2181
+  consumer:
+    timeout: 3000
+

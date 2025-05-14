@@ -27,6 +27,8 @@
         <module>technical-case/technical-case-web</module>
         <module>technical-case/technical-case-user/technical-case-user-api</module>
         <module>technical-case/technical-case-user/technical-case-user-provider</module>
+        <module>spring-security-learning</module>
+        <module>redis-learning</module>
     </modules>
 
     <properties>

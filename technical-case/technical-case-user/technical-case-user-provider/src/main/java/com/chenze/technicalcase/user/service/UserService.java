@@ -13,32 +13,33 @@ import com.chenze.technicalcase.user.model.response.UserInfoResponse;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
+
 @DubboService(interfaceClass = UserServiceApi.class)
 public class UserService implements UserServiceApi {
 
-//    @Resource
-//    private UserMapper userMapper;
-//
-//    @Resource
-//    private UserRoleMapper userRoleMapper;
+    @Resource
+    private UserMapper userMapper;
+
+    @Resource
+    private UserRoleMapper userRoleMapper;
 
 
     @Override
     public UserInfoResponse queryUserInfoByUserName(QueryUserInfoRequest request) {
-//        String username = request.getUsername();
-//
-//        User user = userMapper.selectByUsername(username);
-//        if (user == null) {
-//            return null;
-//        }
-//
-//        UserInfoResponse userInfoResponse = new UserInfoResponse();
-//        userInfoResponse.setId(user.getId());
-//        userInfoResponse.setUsername(user.getUsername());
-//        userInfoResponse.setPassword(user.getPassword());
-//
-//        return userInfoResponse;
-        return null;
+        String username = request.getUsername();
+
+        User user = userMapper.selectByUsername(username);
+        if (user == null) {
+            return null;
+        }
+
+        UserInfoResponse userInfoResponse = new UserInfoResponse();
+        userInfoResponse.setId(user.getId());
+        userInfoResponse.setUsername(user.getUsername());
+        userInfoResponse.setPassword(user.getPassword());
+
+        return userInfoResponse;
     }
 
     /**
@@ -50,28 +51,28 @@ public class UserService implements UserServiceApi {
     @Override
     @Transactional
     public BaseResponse<Void> register(UserRegisterRequest request) {
-//        // 检查用户名是否存在
-//
-//        User existUser = userMapper.selectByUsername(request.getUsername());
-//
-//        if (existUser != null) {
-//            return BaseResponse.error("用户名已存在");
-//        }
-//
-//        // 构建用户对象
-//        User user = new User();
-//        user.setUsername(request.getUsername());
-//        user.setPassword(request.getPassword());
-//        user.setEnabled((byte) 1);
-//        user.setAccountNonExpired((byte) 1);
-//        user.setAccountNonLocked((byte) 1);
-//        user.setCredentialsNonExpired((byte) 1);
-//        userMapper.insertSelective(user);
-//
-//        UserRole userRole = new UserRole();
-//        userRole.setUserId(user.getId());
-//        userRole.setRoleId(request.getRoleId());
-//        userRoleMapper.insertSelective(userRole);
+        // 检查用户名是否存在
+
+        User existUser = userMapper.selectByUsername(request.getUsername());
+
+        if (existUser != null) {
+            return BaseResponse.error("用户名已存在");
+        }
+
+        // 构建用户对象
+        User user = new User();
+        user.setUsername(request.getUsername());
+        user.setPassword(request.getPassword());
+        user.setEnabled((byte) 1);
+        user.setAccountNonExpired((byte) 1);
+        user.setAccountNonLocked((byte) 1);
+        user.setCredentialsNonExpired((byte) 1);
+        userMapper.insertSelective(user);
+
+        UserRole userRole = new UserRole();
+        userRole.setUserId(user.getId());
+        userRole.setRoleId(request.getRoleId());
+        userRoleMapper.insertSelective(userRole);
 
         return BaseResponse.success();
     }

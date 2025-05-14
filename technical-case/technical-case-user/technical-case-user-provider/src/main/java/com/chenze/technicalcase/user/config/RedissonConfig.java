@@ -1,5 +1,6 @@
 package com.chenze.technicalcase.user.config;
 
+import cn.hutool.core.util.StrUtil;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
@@ -31,9 +32,12 @@ public class RedissonConfig {
         SingleServerConfig singleConfig = config.useSingleServer()
                 .setAddress(REDIS_PROTOCOL_PREFIX + redisProperties.getHost() + ":" + redisProperties.getPort())
                 .setDatabase(redisProperties.getDatabase())
-                .setPassword(redisProperties.getPassword())
                 .setConnectionPoolSize(max)
                 .setConnectionMinimumIdleSize(min);
+
+        if (StrUtil.isNotBlank(redisProperties.getPassword())) {
+            singleConfig.setPassword(redisProperties.getPassword());
+        }
 
         if (redisProperties.getTimeout() != null) {
             singleConfig.setConnectTimeout((int) redisProperties.getTimeout().toMillis());
