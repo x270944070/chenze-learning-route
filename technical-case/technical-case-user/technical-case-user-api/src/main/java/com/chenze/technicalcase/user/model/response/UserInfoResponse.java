@@ -14,4 +14,6 @@ public class UserInfoResponse implements Serializable {
 
     private String password;
 
+    private String[] roleNames;
+
 }

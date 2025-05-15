@@ -17,4 +17,6 @@ public interface UserRoleMapper {
     int updateByPrimaryKeySelective(UserRole record);
 
     int batchInsert(@Param("list") List<UserRole> list);
+
+    List<UserRole> selectByUserId(@Param("userId") Long userId);
 }

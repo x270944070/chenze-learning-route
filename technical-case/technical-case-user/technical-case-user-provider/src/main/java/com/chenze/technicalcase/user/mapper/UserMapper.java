@@ -20,4 +20,6 @@ public interface UserMapper {
 
     User selectByUsername(@Param("username") String username);
 
+    Long selectIdByMax();
+
 }

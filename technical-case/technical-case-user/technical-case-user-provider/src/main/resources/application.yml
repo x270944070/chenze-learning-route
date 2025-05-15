@@ -5,7 +5,7 @@ dubbo:
   application:
     name: user-provider
   registry:
-    address: zookeeper://114.96.67.201:2181
+    address: zookeeper://114.96.67.201:2181?timeout=20000&session=30000
   protocol:
     name: dubbo
     port: 20880

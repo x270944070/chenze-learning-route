@@ -1,2 +1,11 @@
 ### GET request to example server
 GET localhost:8080/loginRegister/alice
+
+### 用户登录
+POST localhost:8080/loginRegister/login
+Content-Type: application/json
+
+{
+  "username": "alice",
+  "password": "content"
+}

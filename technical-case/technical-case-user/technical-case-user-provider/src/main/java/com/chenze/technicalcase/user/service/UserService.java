@@ -1,10 +1,13 @@
 package com.chenze.technicalcase.user.service;
 
+import cn.hutool.core.collection.CollUtil;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.chenze.common.model.response.BaseResponse;
 import com.chenze.technicalcase.user.api.UserServiceApi;
+import com.chenze.technicalcase.user.mapper.RoleMapper;
 import com.chenze.technicalcase.user.mapper.UserMapper;
 import com.chenze.technicalcase.user.mapper.UserRoleMapper;
+import com.chenze.technicalcase.user.model.entity.Role;
 import com.chenze.technicalcase.user.model.entity.User;
 import com.chenze.technicalcase.user.model.entity.UserRole;
 import com.chenze.technicalcase.user.model.request.QueryUserInfoRequest;
@@ -14,6 +17,8 @@ import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @DubboService(interfaceClass = UserServiceApi.class)
 public class UserService implements UserServiceApi {
@@ -23,6 +28,8 @@ public class UserService implements UserServiceApi {
 
     @Resource
     private UserRoleMapper userRoleMapper;
+    @Resource
+    private RoleMapper roleMapper;
 
 
     @Override
@@ -34,10 +41,14 @@ public class UserService implements UserServiceApi {
             return null;
         }
 
+        List<UserRole> userRoles = userRoleMapper.selectByUserId(user.getId());
+        List<Role> roles = roleMapper.selectByIdList(userRoles.stream().map(UserRole::getRoleId).collect(Collectors.toList()));
+
         UserInfoResponse userInfoResponse = new UserInfoResponse();
         userInfoResponse.setId(user.getId());
         userInfoResponse.setUsername(user.getUsername());
         userInfoResponse.setPassword(user.getPassword());
+        userInfoResponse.setRoleNames(roles.stream().map(Role::getName).toArray(String[]::new));
 
         return userInfoResponse;
     }
